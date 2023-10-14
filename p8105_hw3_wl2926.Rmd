@@ -1,0 +1,24 @@
+---
+title: "p8105_hw3_wl2926"
+author: "Wenwen Li"
+date: 2023-10-13
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(janitor)
+library(tidyverse)
+library(ggridges)
+library(patchwork)
+library(p8105.datasets)
+```
+
+#Problem 2
+```{r}
+### Load libraries and data. 
+library(p8105.datasets)
+data("brfss_smart2010")
+```
+
