@@ -133,6 +133,7 @@ overallhealth_data <- brfss_smart2010 %>%
 #organize responses as a factor with levels ordered from "Poor" to "Excellent"
 overallhealth_data$response <- factor(overallhealth_data$response, 
                                       levels = response_range)
+print(overallhealth_data)
 ```
 
 ### Question 1: States observed at 7 or more locations in 2002 and 2010    
@@ -164,7 +165,7 @@ excellent_data <- overallhealth_data %>%
 ggplot(excellent_data, aes(x = year, y = avg_data_value, 
                            group = locationabbr, 
                            color = locationabbr)) +
-  geom_line(size=1.5) +
+  geom_line(linewidth=1.5) +
   labs(title = "Mean data value for Excellent\n responses over time by State",
        x = "Year",
        y = "Mean data value",
@@ -173,8 +174,6 @@ ggplot(excellent_data, aes(x = year, y = avg_data_value,
 
 ```
       
-There appears to be a generally decreasing trend over time for the average data value for "Excellent" responses in the "Overall health" topic.
-
 There appears to be a generally decreasing trend over time for the average data value for "Excellent" responses in the "Overall health" topic.
 
 ### Question 3: Two-panel plot showing the distribution of "data_value" for responses ("Poor" to "Excellent") among locations in NY State for 2006 and 2010
@@ -254,7 +253,7 @@ kable(edu_sex_data_wide,
 ```
       
 
-Female participants were the leading observations for the *`Less than high school`*and *`More than high school`*, whereas male participants led in the *`High school equivalent`* education categories.From the table, it is evident that the male participants had the larger proportion of observations in the dataset due to its having the larger difference in distribution for the *`High school equivalent`* education category on comparison with the differences in the other categories. 
+Female participants were the leading observations for the `Less than high school`and `More than high school`, whereas male participants led in the `High school equivalent` education categories.From the table, it is evident that the male participants had the larger proportion of observations in the dataset due to its having the larger difference in distribution for the `High school equivalent` education category on comparison with the differences in the other categories. 
       
 ### Question 2: Create a visualization of the age distributions for men and women in each education category.    
 
@@ -342,5 +341,6 @@ ggplot(hourly_data_long, aes(x = as.numeric(hour),
 ```
      
 This three-panel plot shows the 24-hour activity time courses for each education level, using color to indicate sex. For the `Less than high school` education category, the male and female hourly activity overlap at different times of the day, with peak activity occurring at around noon time. For the `High school equivalent` education category, there is a similar peak of activity at around noon time, but the female participants were consistently more active after around the 4th hour of the day. Lastly, for the `More than high school` education category, the female participants were also consistently more active after around the 3rd hour of the day. Within this category were also the largest number of outliers in terms of hourly activity for both sexes. Notably, after the 12th hour of the day, the loess curve of the hourly activity for the `More than high school` is more flat compared to the other education categories, indicating more activeness.
+
 
 
